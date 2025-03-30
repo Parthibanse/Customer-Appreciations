@@ -82,16 +82,23 @@
             accountsContainer.appendChild(div);
         });
 
-        function filterAppreciations(account) {
+        function displayAppreciations(apps) {
             appreciationList.innerHTML = "";
-            const filtered = appreciations.filter(app => app.account === account);
-            filtered.forEach(app => {
+            apps.forEach(app => {
                 const div = document.createElement("div");
                 div.className = "appreciation";
                 div.innerHTML = `<strong>${app.customer}</strong> from <em>${app.city}</em> said: <br> ${app.message} <br> <img src="${app.image}" alt="appreciation">`;
                 appreciationList.appendChild(div);
             });
         }
+
+        function filterAppreciations(account) {
+            const filtered = appreciations.filter(app => app.account === account);
+            displayAppreciations(filtered);
+        }
+
+        // Show all appreciations by default
+        displayAppreciations(appreciations);
     </script>
 </body>
 </html>
