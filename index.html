@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Massive Appreciations 1000+ in March 2025</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+            text-align: center;
+        }
+        .container {
+            max-width: 900px;
+            margin: auto;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            font-size: 28px;
+            color: #333;
+        }
+        .accounts {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin: 20px 0;
+        }
+        .account {
+            background: #007bff;
+            color: white;
+            padding: 10px 20px;
+            margin: 5px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .appreciation-list {
+            text-align: left;
+            margin-top: 20px;
+        }
+        .appreciation {
+            background: #e9ecef;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+        }
+        .appreciation img {
+            width: 100px;
+            display: block;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Massive Appreciations 1000+ in March 2025</h1>
+        <div class="accounts" id="accounts"></div>
+        <div class="appreciation-list" id="appreciation-list"></div>
+    </div>
+
+    <script>
+        const appreciations = [
+            { id: 1, account: "TATA MOTORS EV", customer: "SABRISH", city: "Mumbai", message: "Boot service Jayant Kumar", date: "2025-03-01", image: "https://github.com/yourrepo/image1.jpeg" },
+            { id: 2, account: "TATA MOTORS EV", customer: "DAMODAR NAGESWARARAO", city: "Pune", message: "Great service from Jaidev ji", date: "2025-03-01", image: "https://github.com/yourrepo/image2.jpeg" },
+        ];
+
+        const uniqueAccounts = [...new Set(appreciations.map(app => app.account))];
+
+        const accountsContainer = document.getElementById("accounts");
+        const appreciationList = document.getElementById("appreciation-list");
+
+        uniqueAccounts.forEach(account => {
+            const div = document.createElement("div");
+            div.className = "account";
+            div.innerText = account;
+            div.onclick = () => filterAppreciations(account);
+            accountsContainer.appendChild(div);
+        });
+
+        function filterAppreciations(account) {
+            appreciationList.innerHTML = "";
+            const filtered = appreciations.filter(app => app.account === account);
+            filtered.forEach(app => {
+                const div = document.createElement("div");
+                div.className = "appreciation";
+                div.innerHTML = `<strong>${app.customer}</strong> from <em>${app.city}</em> said: <br> ${app.message} <br> <img src="${app.image}" alt="appreciation">`;
+                appreciationList.appendChild(div);
+            });
+        }
+    </script>
+</body>
+</html>
